@@ -12,7 +12,9 @@
       <tbody>
         <tr *ngFor="let v of vehiculos">
           <td>
-            <strong><dd>{{v.id}}</dd></strong>
+            <strong>
+              <dd>{{v.id}}</dd>
+            </strong>
           <td>
             <dd>{{v.marca}}</dd>
           </td>
@@ -22,8 +24,15 @@
           <td>
             <dd>{{v.modelo}}</dd>
           </td>
-      </tr>
+        </tr>
       </tbody>
     </table>
+    <div *ngIf="marcasCount">
+      <ul>
+        <li *ngFor="let marca of marcasCount | keyvalue">
+          Total {{ marca.key }}: {{ marca.value }}
+        </li>
+      </ul>
+    </div>
   </div>
 </div>

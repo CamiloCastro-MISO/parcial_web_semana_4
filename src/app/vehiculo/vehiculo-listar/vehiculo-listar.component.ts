@@ -11,6 +11,8 @@ export class VehiculoListarComponent implements OnInit {
 
   vehiculos: Array<Vehiculo> = [];
 
+  marcasCount: { [marca: string]: number } = {};
+
   constructor(private vehiculoService: VehiculoService) { }
 
   getVehiculosList(): Array<Vehiculo> {
@@ -19,7 +21,20 @@ export class VehiculoListarComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getVehiculosList();
+    this.vehiculoService.getVehiculos().subscribe((vehiculosDesdeServicio) => {
+      this.vehiculos = vehiculosDesdeServicio;
+      this.countMarcas();
+    });
+  }
+
+  countMarcas(): void {
+    for (const vehiculo of this.vehiculos) {
+      if (this.marcasCount[vehiculo.marca]) {
+        this.marcasCount[vehiculo.marca]++;
+      } else {
+        this.marcasCount[vehiculo.marca] = 1;
+      }
+    }
   }
 
 }

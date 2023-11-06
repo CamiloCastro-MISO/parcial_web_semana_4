@@ -5,13 +5,15 @@
   object-position: center;
 }
 
-.footer {
+.contact-info {
+  text-align: center;
+  font-size: 1rem;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 10px;
   background-color: #f8f9fa;
   color: #212529;
-  padding: 10px 0;
-  width: 100%;
-  position: fixed;
-  bottom: 0;
+  display: block;
 }
 
 .container {
@@ -20,4 +22,3 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
-
